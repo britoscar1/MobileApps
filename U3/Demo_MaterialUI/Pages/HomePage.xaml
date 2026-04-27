@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_MaterialUI.Pages.HomePage"
+             Title="Inicio"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Top App Bar custom (elevacion via BoxView) -->
+        <VerticalStackLayout Grid.Row="0">
+            <Border Style="{StaticResource MD3TopAppBar}">
+                <Label Text="Inicio" Style="{StaticResource TitleLarge}" />
+            </Border>
+            <BoxView HeightRequest="1" Color="{StaticResource Outline}" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="24" Spacing="16">
+                <Label Text="Bienvenido a Link" Style="{StaticResource HeadlineLarge}" />
+                <Label Text="Demostracion estricta de Material Design 3 sobre la app Link."
+                       Style="{StaticResource BodyMedium}"
+                       TextColor="{StaticResource OnSurfaceVariant}" />
+
+                <Border Style="{StaticResource MD3Card}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Asistencia del dia" Style="{StaticResource TitleLarge}" />
+                        <Label Text="Aplicaciones Moviles" Style="{StaticResource BodyMedium}" />
+                        <Label Text="09:14, FCITEC-301" Style="{StaticResource LabelMedium}" />
+
+                        <HorizontalStackLayout Spacing="8" Margin="0,8,0,0">
+                            <Button Text="Ver detalle" Style="{StaticResource FilledButton}" />
+                            <Button Text="Compartir" Style="{StaticResource OutlinedButton}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource MD3Card}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Proxima sesion" Style="{StaticResource TitleLarge}" />
+                        <Label Text="Bases de Datos II" Style="{StaticResource BodyMedium}" />
+                        <Label Text="Manana 13:00, FCITEC-110" Style="{StaticResource LabelMedium}" />
+                        <Button Text="Recordarme" Style="{StaticResource TextButton}"
+                                HorizontalOptions="Start" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

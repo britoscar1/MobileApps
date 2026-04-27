@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Link.ViewModels"
+             x:Class="Link.Views.PerfilPage"
+             x:DataType="vm:PerfilViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+        <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="{StaticResource Surface}"
+                Padding="16">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Nombre"
+                       FontSize="12"
+                       TextColor="{StaticResource OnSurfaceVariant}" />
+                <Label Text="{Binding NombreCompleto}"
+                       FontSize="16"
+                       TextColor="{StaticResource OnSurface}" />
+                <BoxView HeightRequest="1" Color="{StaticResource Outline}" Margin="0,8" />
+                <Label Text="Correo institucional"
+                       FontSize="12"
+                       TextColor="{StaticResource OnSurfaceVariant}" />
+                <Label Text="{Binding CorreoInstitucional}"
+                       FontSize="14"
+                       TextColor="{StaticResource OnSurface}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Button Text="Cerrar sesion"
+                Command="{Binding CerrarSesionCommand}"
+                BackgroundColor="{StaticResource Surface}"
+                TextColor="{StaticResource Primary}"
+                BorderColor="{StaticResource Primary}"
+                BorderWidth="1"
+                CornerRadius="8"
+                HeightRequest="48" />
+    </VerticalStackLayout>
+</ContentPage>

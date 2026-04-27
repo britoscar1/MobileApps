@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_ExternalTasks.MainPage"
+             Title="Tareas externas"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="U2.3 Tareas externas (equivalente a Intent ACTION_VIEW / SENDTO)"
+                   FontSize="20" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label Text="Cada boton invoca una API multiplataforma de Microsoft.Maui.ApplicationModel."
+                   FontSize="13"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+
+            <Button Text="Abrir navegador"
+                    Clicked="OnAbrirNavegadorClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="56" />
+
+            <Button Text="Enviar correo"
+                    Clicked="OnEnviarCorreoClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="56" />
+
+            <Button Text="Abrir Maps (FCITEC Valle de las Palmas)"
+                    Clicked="OnAbrirMapsClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="56" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="{StaticResource Surface}"
+                    Padding="12"
+                    Margin="0,8,0,0">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Estado" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                    <Label x:Name="StatusLabel"
+                           Text="Sin acciones."
+                           FontSize="14"
+                           TextColor="{StaticResource OnSurface}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

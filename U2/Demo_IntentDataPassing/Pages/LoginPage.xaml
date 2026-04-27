@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_IntentDataPassing.Pages.LoginPage"
+             Title="Login"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid Padding="24" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout Grid.Row="1" Spacing="16">
+            <Label Text="U2.2 Intent Data Passing"
+                   FontSize="22" FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="Ingresa tu nombre. Sera enviado a Home como query parameter."
+                   FontSize="13"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   HorizontalTextAlignment="Center" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="{StaticResource Surface}" Padding="12,4">
+                <Entry x:Name="NombreEntry" Placeholder="Nombre" BackgroundColor="Transparent" />
+            </Border>
+
+            <Button Text="Continuar a Home"
+                    Clicked="OnContinuarClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="48" />
+
+            <Button Text="Ver lista de materias"
+                    Clicked="OnVerMateriasClicked"
+                    BackgroundColor="{StaticResource Surface}"
+                    TextColor="{StaticResource Primary}"
+                    BorderColor="{StaticResource Primary}" BorderWidth="1"
+                    CornerRadius="8" HeightRequest="48" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

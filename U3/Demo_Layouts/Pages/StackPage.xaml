@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_Layouts.Pages.StackPage"
+             Title="Stack"
+             BackgroundColor="{StaticResource Background}">
+
+    <!-- Equivalente a LinearLayout vertical: items uno debajo de otro. -->
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="Feed de notificaciones"
+                   FontSize="20" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Asistencia registrada" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Aplicaciones Moviles - 09:14" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Cambio de aula" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Bases de Datos II - de FCITEC-110 a FCITEC-105" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Recordatorio" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Examen parcial el viernes 09:00" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Tarea entregada" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Algoritmos Avanzados - Practica 3" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Calificacion publicada" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Redes - Examen 1 (88/100)" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="QR del dia disponible" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Aplicaciones Moviles" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Mensaje del docente" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Inteligencia Artificial - traer laptop el viernes" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Encuesta institucional" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Responder antes del 30 de abril" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Sesion proxima" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Bases de Datos II - manana 13:00" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12" BackgroundColor="{StaticResource Surface}"
+                    Padding="16">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Recordatorio" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="Pago de inscripcion vence el 28" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

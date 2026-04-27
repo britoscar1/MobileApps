@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_FullNavigation.Pages.PerfilPage"
+             Title="Perfil"
+             BackgroundColor="{StaticResource Background}">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+        <Label Text="Demo U2.4 — flujo integrador"
+               FontSize="14"
+               TextColor="{StaticResource OnSurfaceVariant}" />
+        <Button Text="Cerrar sesion"
+                Clicked="OnCerrarSesionClicked"
+                BackgroundColor="{StaticResource Surface}"
+                TextColor="{StaticResource Primary}"
+                BorderColor="{StaticResource Primary}" BorderWidth="1"
+                CornerRadius="8" HeightRequest="48" />
+    </VerticalStackLayout>
+</ContentPage>

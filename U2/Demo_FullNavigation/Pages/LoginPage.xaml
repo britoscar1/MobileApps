@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_FullNavigation.Pages.LoginPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid Padding="24" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout Grid.Row="1" Spacing="16">
+            <Label Text="Link"
+                   FontSize="36" FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="Demo U2.4 — flujo integrador"
+                   FontSize="13"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,16" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry x:Name="UsuarioEntry" Placeholder="Usuario" BackgroundColor="Transparent" />
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry x:Name="PasswordEntry" Placeholder="Contrasena" IsPassword="True"
+                       BackgroundColor="Transparent" />
+            </Border>
+
+            <Button Text="Ingresar"
+                    Clicked="OnIngresarClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="48" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

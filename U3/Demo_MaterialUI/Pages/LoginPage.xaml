@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_MaterialUI.Pages.LoginPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid Padding="24" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout Grid.Row="1" Spacing="16">
+            <Label Text="Link" Style="{StaticResource HeadlineLarge}"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="Material Design 3" Style="{StaticResource LabelMedium}"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,16" />
+
+            <!-- TextField MD3 con label flotante simulado. -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Usuario" Style="{StaticResource LabelMedium}" />
+                <Border Style="{StaticResource MD3TextField}">
+                    <Entry Placeholder="ej. juan.perez" BackgroundColor="Transparent" />
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Contrasena" Style="{StaticResource LabelMedium}" />
+                <Border Style="{StaticResource MD3TextField}">
+                    <Entry IsPassword="True" Placeholder="********" BackgroundColor="Transparent" />
+                </Border>
+            </VerticalStackLayout>
+
+            <Button Text="Ingresar"
+                    Style="{StaticResource FilledButton}"
+                    Clicked="OnIngresarClicked" />
+
+            <Button Text="Recuperar acceso"
+                    Style="{StaticResource TextButton}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

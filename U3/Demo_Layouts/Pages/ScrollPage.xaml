@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_Layouts.Pages.ScrollPage"
+             Title="Scroll"
+             BackgroundColor="{StaticResource Background}">
+
+    <!-- ScrollView envolviendo contenido largo. -->
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="Reglamento academico (extracto)"
+                   FontSize="20" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, lacus a tristique luctus, dolor lacus tristique nibh, vel consequat sapien arcu vitae justo. Nulla facilisi. Etiam vitae lacus eu nibh dignissim luctus." />
+
+            <Label Text="Articulo 12. Asistencias"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+
+            <Label Text="Articulo 13. Evaluaciones"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+            <Image Source="dotnet_bot.png" HeightRequest="120" Aspect="AspectFit" />
+
+            <Label Text="Articulo 14. Reposiciones"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris." />
+
+            <Label Text="Articulo 15. Servicio social"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Praesent fermentum tempor tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel neque nec dui dignissim bibendum." />
+
+            <Label Text="Articulo 16. Titulacion"
+                   FontSize="16" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui." />
+
+            <Image Source="dotnet_bot.png" HeightRequest="120" Aspect="AspectFit" />
+
+            <Label TextColor="{StaticResource OnSurfaceVariant}" FontSize="14" LineBreakMode="WordWrap"
+                   Text="Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

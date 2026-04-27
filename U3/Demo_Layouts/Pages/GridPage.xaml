@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_Layouts.Pages.GridPage"
+             Title="Grid"
+             BackgroundColor="{StaticResource Background}">
+
+    <!-- Equivalente a ConstraintLayout: filas + columnas explicitas. -->
+    <ScrollView>
+        <Grid Padding="24"
+              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              ColumnDefinitions="120,*"
+              RowSpacing="12"
+              ColumnSpacing="12">
+
+            <Label Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="Perfil del estudiante"
+                   FontSize="20" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}"
+                   Margin="0,0,0,8" />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Nombre" VerticalTextAlignment="Center"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <Border Grid.Row="1" Grid.Column="1"
+                    Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="Nombre completo" BackgroundColor="Transparent" />
+            </Border>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Matricula" VerticalTextAlignment="Center"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <Border Grid.Row="2" Grid.Column="1"
+                    Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="0000000" Keyboard="Numeric" BackgroundColor="Transparent" />
+            </Border>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Correo" VerticalTextAlignment="Center"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <Border Grid.Row="3" Grid.Column="1"
+                    Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="usuario@uabc.edu.mx" Keyboard="Email" BackgroundColor="Transparent" />
+            </Border>
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Carrera" VerticalTextAlignment="Center"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <Border Grid.Row="4" Grid.Column="1"
+                    Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="ISC / IBI / IS" BackgroundColor="Transparent" />
+            </Border>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Semestre" VerticalTextAlignment="Center"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <Border Grid.Row="5" Grid.Column="1"
+                    Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8" BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="1-9" Keyboard="Numeric" BackgroundColor="Transparent" />
+            </Border>
+
+            <Button Grid.Row="6" Grid.ColumnSpan="2"
+                    Text="Guardar"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="48"
+                    Margin="0,16,0,0" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

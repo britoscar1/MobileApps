@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_FullNavigation.Pages.DetalleMateriaPage"
+             Title="Detalle de materia"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label x:Name="NombreLabel" FontSize="22" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12"
+                    BackgroundColor="{StaticResource Surface}" Padding="16">
+                <VerticalStackLayout Spacing="6">
+                    <Label x:Name="CodigoLabel" FontSize="13"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                    <Label x:Name="DocenteLabel" FontSize="14"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label x:Name="AulaLabel" FontSize="13"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Contactar docente"
+                    Clicked="OnContactarDocenteClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" HeightRequest="48" />
+
+            <Label x:Name="StatusLabel"
+                   FontSize="13"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   IsVisible="False" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

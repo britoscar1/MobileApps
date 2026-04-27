@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Link.ViewModels"
+             x:Class="Link.Views.LoginPage"
+             x:DataType="vm:LoginViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid Padding="24" RowDefinitions="*,Auto,*">
+        <VerticalStackLayout Grid.Row="1" Spacing="16">
+            <Label Text="Link"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalTextAlignment="Center" />
+
+            <Label Text="Registro de asistencias UABC FCITEC"
+                   FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,24" />
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="Usuario"
+                       Text="{Binding Usuario}"
+                       BackgroundColor="Transparent" />
+            </Border>
+
+            <Border Stroke="{StaticResource Outline}" StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8"
+                    BackgroundColor="{StaticResource Surface}"
+                    Padding="12,4">
+                <Entry Placeholder="Contrasena"
+                       Text="{Binding Contrasena}"
+                       IsPassword="True"
+                       BackgroundColor="Transparent" />
+            </Border>
+
+            <Label Text="{Binding ErrorMensaje}"
+                   IsVisible="{Binding TieneError}"
+                   TextColor="{StaticResource Error}"
+                   FontSize="13" />
+
+            <Button Text="Ingresar"
+                    Command="{Binding IngresarCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    Margin="0,8,0,0" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Primary}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

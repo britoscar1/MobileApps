@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Demo_LifecycleStates"
+             x:Class="Demo_LifecycleStates.MainPage"
+             Title="Ciclo de vida"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="16" RowSpacing="12">
+        <Label Grid.Row="0"
+               Text="Log de eventos del ciclo de vida"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="{StaticResource OnSurface}" />
+
+        <Label Grid.Row="1"
+               Text="App.OnStart/OnSleep/OnResume y Page.OnAppearing/OnDisappearing se registran aqui en orden inverso (mas reciente arriba)."
+               FontSize="13"
+               TextColor="{StaticResource OnSurfaceVariant}" />
+
+        <Border Grid.Row="2"
+                Stroke="{StaticResource Outline}" StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="{StaticResource Surface}"
+                Padding="0">
+            <CollectionView x:Name="LogList" Margin="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:LifecycleEntry">
+                        <Grid Padding="12,10" ColumnDefinitions="Auto,Auto,*" ColumnSpacing="12">
+                            <Label Grid.Column="0" Text="{Binding TimestampStr}"
+                                   FontSize="12" TextColor="{StaticResource OnSurfaceVariant}" />
+                            <Label Grid.Column="1" Text="{Binding Source}"
+                                   FontSize="12" FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}" />
+                            <Label Grid.Column="2" Text="{Binding Event}"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </Grid>
+</ContentPage>

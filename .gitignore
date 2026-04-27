@@ -1,0 +1,94 @@
+# =====================================================================
+# .gitignore para .NET / MAUI / Visual Studio
+# Basado en https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
+# =====================================================================
+
+## Carpetas de salida y caches
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+
+## Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+## Archivos generados por restore / build
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.binlog
+.dotnet/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+## Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.coverage
+*.coveragexml
+coverage*/
+
+## ReSharper / dotCover
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.dotCover
+
+## Specific to MAUI / mobile
+Resources/Raw/
+Resources/Splash/Generated/
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+*.cer
+*.aab
+*.apk
+*.ipa
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+## Android
+local.properties
+*.hprof
+.gradle/
+
+## Windows / publish
+publish/
+PublishProfiles/
+
+## Sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Logs y diagnostico
+*.log
+*.tlog
+*.lastbuildstate
+*.cache
+
+## Otros
+*.swp
+*.bak
+*.tmp
+*.orig
+node_modules/

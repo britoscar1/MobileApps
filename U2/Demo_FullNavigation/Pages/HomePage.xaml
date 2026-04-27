@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_FullNavigation.Pages.HomePage"
+             Title="Inicio"
+             BackgroundColor="{StaticResource Background}">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+        <Label x:Name="SaludoLabel"
+               FontSize="22" FontAttributes="Bold"
+               TextColor="{StaticResource OnSurface}" />
+        <Label Text="Cambia a la tab Materias para ver el flujo completo: lista -> detalle -> contactar docente."
+               FontSize="13"
+               TextColor="{StaticResource OnSurfaceVariant}" />
+    </VerticalStackLayout>
+</ContentPage>

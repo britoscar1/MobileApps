@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_IntentDataPassing.Pages.HomePage"
+             Title="Home"
+             BackgroundColor="{StaticResource Background}">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+        <Label x:Name="SaludoLabel"
+               FontSize="24" FontAttributes="Bold"
+               TextColor="{StaticResource OnSurface}" />
+        <Label Text="El nombre de arriba viene del Login via Shell query parameter."
+               FontSize="13"
+               TextColor="{StaticResource OnSurfaceVariant}" />
+
+        <Button Text="Ver materias"
+                Clicked="OnVerMateriasClicked"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="{StaticResource OnPrimary}"
+                CornerRadius="8" HeightRequest="48" />
+    </VerticalStackLayout>
+</ContentPage>

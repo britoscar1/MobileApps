@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Demo_Layouts.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Demo_Layouts.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource Surface}"
+    Shell.ForegroundColor="{StaticResource OnSurface}"
+    Shell.TitleColor="{StaticResource OnSurface}"
+    Shell.TabBarBackgroundColor="{StaticResource Surface}"
+    Shell.TabBarTitleColor="{StaticResource Primary}"
+    Title="Layouts demo">
+
+    <TabBar>
+        <ShellContent Title="Grid"
+                      Route="grid"
+                      ContentTemplate="{DataTemplate pages:GridPage}" />
+        <ShellContent Title="Stack"
+                      Route="stack"
+                      ContentTemplate="{DataTemplate pages:StackPage}" />
+        <ShellContent Title="Scroll"
+                      Route="scroll"
+                      ContentTemplate="{DataTemplate pages:ScrollPage}" />
+    </TabBar>
+
+</Shell>

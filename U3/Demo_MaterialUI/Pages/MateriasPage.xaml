@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo_MaterialUI.Pages.MateriasPage"
+             Title="Materias"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <Border Style="{StaticResource MD3TopAppBar}">
+                <Label Text="Materias" Style="{StaticResource TitleLarge}" />
+            </Border>
+            <BoxView HeightRequest="1" Color="{StaticResource Outline}" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16" Spacing="12">
+                <Border Style="{StaticResource MD3Card}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Aplicaciones Moviles" Style="{StaticResource TitleLarge}" />
+                        <Label Text="MOV-2026-1" Style="{StaticResource LabelMedium}" />
+                        <Label Text="M.C. R. Hernandez - FCITEC-301" Style="{StaticResource BodyMedium}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource MD3Card}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Algoritmos Avanzados" Style="{StaticResource TitleLarge}" />
+                        <Label Text="ALG-2026-1" Style="{StaticResource LabelMedium}" />
+                        <Label Text="Dr. P. Lopez - FCITEC-204" Style="{StaticResource BodyMedium}" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource MD3Card}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Bases de Datos II" Style="{StaticResource TitleLarge}" />
+                        <Label Text="BD-2026-1" Style="{StaticResource LabelMedium}" />
+                        <Label Text="M.C. A. Castro - FCITEC-110" Style="{StaticResource BodyMedium}" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
