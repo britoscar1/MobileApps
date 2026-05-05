@@ -8,7 +8,8 @@
     Shell.BackgroundColor="{StaticResource Primary}"
     Shell.ForegroundColor="{StaticResource OnPrimary}"
     Shell.TabBarBackgroundColor="{StaticResource Surface}"
-    Shell.TabBarTitleColor="{StaticResource Primary}">
+    Shell.TabBarTitleColor="{StaticResource Primary}"
+    Shell.TabBarUnselectedColor="{StaticResource OnSurfaceVariant}">
 
     <ShellContent
         Title="Login"

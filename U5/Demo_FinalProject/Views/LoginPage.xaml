@@ -19,10 +19,14 @@
                    Margin="0,0,0,24" />
 
             <Entry Text="{Binding Usuario}" Placeholder="Usuario"
-                   BackgroundColor="{StaticResource Surface}" />
+                   BackgroundColor="{StaticResource Surface}"
+                   TextColor="{StaticResource OnSurface}"
+                   PlaceholderColor="{StaticResource OnSurfaceVariant}" />
 
             <Entry Text="{Binding Contrasena}" Placeholder="Contrasena"
-                   IsPassword="True" BackgroundColor="{StaticResource Surface}" />
+                   IsPassword="True" BackgroundColor="{StaticResource Surface}"
+                   TextColor="{StaticResource OnSurface}"
+                   PlaceholderColor="{StaticResource OnSurfaceVariant}" />
 
             <Label Text="{Binding Error}" TextColor="{StaticResource Error}" FontSize="12" />
 
