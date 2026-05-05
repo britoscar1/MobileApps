@@ -1,25 +1,52 @@
-# Unidad 4 — Listas y persistencia local
+# Unidad 4 — Listas y Bases de Datos
 
-Estado: **placeholder**.
+## Demos
 
-Esta unidad cubrira (segun la PUA de Aplicaciones Moviles UABC FCITEC):
+| # | Demo | Actividad | Estado |
+|---|------|-----------|--------|
+| 4.1 | [Demo_DynamicLists](Demo_DynamicLists/) | Listas dinámicas con CollectionView | ✅ |
+| 4.2 | [Demo_LocalDatabase](Demo_LocalDatabase/) | CRUD con SQLite local | ✅ |
+| 4.3 | [Demo_PersistentData](Demo_PersistentData/) | Integración listas + persistencia | ✅ |
 
-- `CollectionView` y `ListView` avanzados con templates dinamicos.
-- Persistencia local con **SQLite** (paquete `sqlite-net-pcl`).
-- Patron Repository sobre la BD local.
-- Sincronizacion con `Link.Api` via `HttpClient` tipado.
-- Estados de UI: vacio, cargando, error, lista.
+## Equivalencias Android nativo ↔ .NET MAUI
 
-## Demos planeadas
+| Concepto Android | Equivalente MAUI | Notas |
+|------------------|------------------|-------|
+| `RecyclerView` + `Adapter` | `CollectionView` + `ItemTemplate` | Binding a `ObservableCollection<T>` con data templates en XAML |
+| `Room` / `SQLiteOpenHelper` | `sqlite-net-pcl` (NuGet) | ORM ligero, async, multiplataforma. Sin generación de código como Room |
+| `LiveData` + `ViewModel` | `ObservableProperty` + `CommunityToolkit.Mvvm` | Notificación automática a la UI via source generators |
+| `DiffUtil` | Automático en `ObservableCollection<T>` | MAUI actualiza solo los items que cambian |
+| `SwipeActionHelper` | `SwipeView` dentro del `ItemTemplate` | Nativo en MAUI, sin librerías externas |
 
-| Demo | Actividad | Tipo |
-| --- | --- | --- |
-| `Demo_ListasAvanzadas/` | U4.1 | App MAUI standalone que demuestra `CollectionView` con grouping, swipe, pull-to-refresh y empty state. |
-| `Demo_SqliteCRUD/` | U4.2 | App MAUI con CRUD completo de materias usando SQLite local. |
-| `Demo_HttpSync/` | U4.3 | Cliente HTTP tipado contra `Link.Api` (sync local <-> remoto). |
+## Setup común
 
-## TODOs heredados desde U1-U3
+```bash
+# Restaurar paquetes NuGet (ejecutar dentro de cada carpeta de demo)
+dotnet restore
 
-- `MockAuthService` en `Link/Services/` se reemplazara por `HttpAuthService` aqui.
-- `MateriasMock` desaparecera cuando exista repositorio SQLite.
-- Tests unitarios para los repositorios y los HTTP services (xUnit).
+# Compilar para Android
+dotnet build -f net10.0-android
+
+# Compilar para Windows
+dotnet build -f net10.0-windows10.0.19041.0
+
+# Ejecutar en emulador Android (requiere emulador corriendo)
+dotnet build -t:Run -f net10.0-android
+```
+
+## Ruta de la base de datos SQLite
+
+| Plataforma | Ruta |
+|------------|------|
+| Android | `/data/data/[app-id]/files/` → `FileSystem.AppDataDirectory` |
+| Windows | `C:\Users\[user]\AppData\Local\Packages\[app-id]\LocalState\` → `FileSystem.AppDataDirectory` |
+
+En ambos casos se usa `Path.Combine(FileSystem.AppDataDirectory, "database.db3")` para portabilidad.
+
+## Dependencias NuGet (U4)
+
+| Paquete | Versión | Uso |
+|---------|---------|-----|
+| `sqlite-net-pcl` | 1.9.172 | ORM SQLite multiplataforma |
+| `SQLitePCLRaw.bundle_green` | 2.1.10 | Provider nativo de SQLite |
+| `CommunityToolkit.Mvvm` | 8.4.0 | MVVM source generators |

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_FinalProject.ViewModels"
+    x:Class="Demo_FinalProject.Views.DetallePage"
+    x:DataType="vm:DetalleViewModel"
+    Title="Detalle de Materia"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding Nombre}" FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
+                        <Label Text="Docente:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                        <Label Grid.Column="1" Text="{Binding Docente}" TextColor="{StaticResource OnSurfaceVariant}" />
+
+                        <Label Grid.Row="1" Text="Horario:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Horario}" TextColor="{StaticResource OnSurfaceVariant}" />
+
+                        <Label Grid.Row="2" Text="Creditos:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Creditos}" TextColor="{StaticResource OnSurfaceVariant}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Contactar docente" Command="{Binding ContactarDocenteCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}" CornerRadius="8" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

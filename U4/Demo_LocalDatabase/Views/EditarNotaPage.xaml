@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_LocalDatabase.ViewModels"
+    x:Class="Demo_LocalDatabase.Views.EditarNotaPage"
+    x:DataType="vm:EditarNotaViewModel"
+    Title="Editar Nota"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="12">
+
+            <Label Text="Titulo" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Entry Text="{Binding Titulo}" Placeholder="Titulo de la nota"
+                   BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="Materia" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Entry Text="{Binding Materia}" Placeholder="Nombre de la materia"
+                   BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="Contenido" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Editor Text="{Binding Contenido}" Placeholder="Escribe tu nota aqui..."
+                    HeightRequest="200" BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="{Binding Error}" TextColor="{StaticResource Error}" FontSize="12"
+                   IsVisible="{Binding Error, Converter={StaticResource StringToBoolConverter}}" />
+
+            <Button Text="Actualizar" Command="{Binding GuardarCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" Margin="0,16,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

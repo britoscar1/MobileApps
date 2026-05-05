@@ -1,20 +1,37 @@
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Link.Models;
+using Link.Services;
 
 namespace Link.ViewModels;
 
 public sealed partial class MateriasViewModel : BaseViewModel
 {
-    public MateriasViewModel()
+    private readonly SqliteAsistenciaRepository _repository;
+
+    [ObservableProperty]
+    private ObservableCollection<Materia> _materias = [];
+
+    public MateriasViewModel(SqliteAsistenciaRepository repository)
     {
         Title = "Materias";
-        // Mock placeholder. El listado real se traera desde Link.Api en U4-U5.
-        Materias = new ObservableCollection<Materia>
-        {
-            new() { Codigo = "MOV-2026-1", Nombre = "Aplicaciones Moviles", Docente = "Por asignar" },
-            new() { Codigo = "ALG-2026-1", Nombre = "Algoritmos Avanzados", Docente = "Por asignar" }
-        };
+        _repository = repository;
     }
 
-    public ObservableCollection<Materia> Materias { get; }
+    [RelayCommand]
+    private async Task CargarMaterias()
+    {
+        if (IsBusy) return;
+        try
+        {
+            IsBusy = true;
+            var lista = await _repository.ObtenerMateriasAsync();
+            Materias = new ObservableCollection<Materia>(lista);
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
 }

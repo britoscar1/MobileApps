@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_PersistentData.ViewModels"
+    x:Class="Demo_PersistentData.Views.NuevaSesionPage"
+    x:DataType="vm:NuevaSesionViewModel"
+    Title="Nueva Sesion"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="12">
+
+            <Label Text="Materia" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Entry Text="{Binding NombreMateria}" Placeholder="Nombre de la materia"
+                   BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="Fecha" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <DatePicker Date="{Binding Fecha}" BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="Asistentes" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Grid ColumnDefinitions="*,Auto">
+                <Entry Text="{Binding Asistentes}" Keyboard="Numeric"
+                       BackgroundColor="{StaticResource Surface}" />
+                <Stepper Grid.Column="1" Value="{Binding Asistentes}" Minimum="1" Maximum="100" />
+            </Grid>
+
+            <Label Text="Total de alumnos" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Grid ColumnDefinitions="*,Auto">
+                <Entry Text="{Binding Total}" Keyboard="Numeric"
+                       BackgroundColor="{StaticResource Surface}" />
+                <Stepper Grid.Column="1" Value="{Binding Total}" Minimum="1" Maximum="100" />
+            </Grid>
+
+            <Label Text="Notas (opcional)" FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" />
+            <Editor Text="{Binding Notas}" Placeholder="Observaciones de la sesion..."
+                    HeightRequest="100" BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="{Binding Error}" TextColor="{StaticResource Error}" FontSize="12" />
+
+            <Button Text="Registrar Sesion" Command="{Binding GuardarCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" Margin="0,16,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

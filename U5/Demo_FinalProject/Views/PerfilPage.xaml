@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_FinalProject.ViewModels"
+    xmlns:models="clr-namespace:Demo_FinalProject.Models"
+    x:Class="Demo_FinalProject.Views.PerfilPage"
+    x:DataType="vm:PerfilViewModel"
+    Title="Perfil"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding NombreUsuario}" FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Total asistencias:" TextColor="{StaticResource OnSurfaceVariant}" />
+                        <Label Grid.Column="1" Text="{Binding TotalAsistencias}"
+                               FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Ultima ubicacion:" TextColor="{StaticResource OnSurfaceVariant}" />
+                        <Label Grid.Column="1" Text="{Binding UltimaUbicacion}"
+                               FontSize="12" TextColor="{StaticResource OnSurface}" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Ver log de sesion" Command="{Binding ToggleLogCommand}"
+                    BackgroundColor="{StaticResource Surface}"
+                    TextColor="{StaticResource Primary}" CornerRadius="8"
+                    BorderColor="{StaticResource Primary}" BorderWidth="1" />
+
+            <CollectionView ItemsSource="{Binding LogEventos}" IsVisible="{Binding LogVisible}"
+                            MaximumHeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:LifecycleEvent">
+                        <HorizontalStackLayout Spacing="8" Padding="8,4">
+                            <Label Text="{Binding Timestamp, StringFormat='{0:HH:mm:ss}'}"
+                                   FontSize="12" TextColor="{StaticResource OnSurfaceVariant}" />
+                            <Label Text="{Binding Evento}" FontSize="12"
+                                   TextColor="{StaticResource OnSurface}" FontAttributes="Bold" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Cerrar sesion" Command="{Binding CerrarSesionCommand}"
+                    BackgroundColor="{StaticResource Error}"
+                    TextColor="{StaticResource OnPrimary}" CornerRadius="8"
+                    Margin="0,16,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

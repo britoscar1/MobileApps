@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_LocalDatabase.ViewModels"
+    xmlns:models="clr-namespace:Demo_LocalDatabase.Models"
+    x:Class="Demo_LocalDatabase.Views.NotasPage"
+    x:DataType="vm:NotasViewModel"
+    Title="Mis Notas"
+    BackgroundColor="{StaticResource Background}">
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Mis Notas" FontSize="20" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" VerticalOptions="Center" />
+            <Button Grid.Column="1" Text="+" FontSize="24"
+                    Command="{Binding IrAAgregarCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="20" WidthRequest="40" HeightRequest="40"
+                    Padding="0" />
+        </Grid>
+    </Shell.TitleView>
+
+    <RefreshView Command="{Binding CargarNotasCommand}" IsRefreshing="{Binding IsBusy}">
+        <CollectionView ItemsSource="{Binding Notas}">
+
+            <CollectionView.EmptyView>
+                <Label Text="No hay notas guardadas. Presiona + para agregar."
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       TextColor="{StaticResource OnSurfaceVariant}" FontSize="16"
+                       Margin="0,60,0,0" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:NotaEstudiante">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Eliminar"
+                                           BackgroundColor="{StaticResource Error}"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type vm:NotasViewModel}}, Path=EliminarNotaCommand}"
+                                           CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                                BackgroundColor="{StaticResource Surface}" Padding="16" Margin="16,6">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:NotasViewModel}}, Path=IrAEditarCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold"
+                                       TextColor="{StaticResource OnSurface}" />
+                                <Label Grid.Column="1" Text="{Binding Materia}" FontSize="12"
+                                       TextColor="{StaticResource Primary}" VerticalOptions="Center" />
+                                <Label Grid.Row="1" Grid.ColumnSpan="2"
+                                       Text="{Binding FechaCreacion, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
+                                       FontSize="12" TextColor="{StaticResource OnSurfaceVariant}"
+                                       Margin="0,4,0,0" />
+                            </Grid>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_FinalProject.ViewModels"
+    x:Class="Demo_FinalProject.Views.InicioPage"
+    x:DataType="vm:InicioViewModel"
+    Title="Inicio"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Label Text="{Binding NombreUsuario, StringFormat='Hola, {0}'}"
+                   FontSize="24" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Resumen de Asistencias" FontSize="18" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Total registradas:" TextColor="{StaticResource OnSurfaceVariant}" />
+                        <Label Grid.Column="1" Text="{Binding TotalAsistencias}"
+                               FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Materia con mas asistencias:" TextColor="{StaticResource OnSurfaceVariant}" />
+                        <Label Grid.Column="1" Text="{Binding MateriaTop}"
+                               FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                    </Grid>
+
+                    <Label Text="Progreso general" FontSize="12"
+                           TextColor="{StaticResource OnSurfaceVariant}" Margin="0,8,0,0" />
+                    <ProgressBar Progress="{Binding PorcentajeGeneral}"
+                                 ProgressColor="{StaticResource Primary}" />
+                    <Label Text="{Binding PorcentajeGeneral, StringFormat='{0:P0} de sesiones esperadas'}"
+                           FontSize="12" TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Escanear QR de Asistencia" Command="{Binding IrAEscanerCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" FontSize="16" HeightRequest="50" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_PersistentData.ViewModels"
+    x:Class="Demo_PersistentData.Views.DetalleSesionPage"
+    x:DataType="vm:DetalleSesionViewModel"
+    Title="Detalle de Sesion"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding NombreMateria}" FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="{Binding FechaTexto}" FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+
+                    <BoxView HeightRequest="1" Color="{StaticResource Outline}" Margin="0,8" />
+
+                    <Label Text="{Binding AsistenciaTexto}" FontSize="16"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <ProgressBar Progress="{Binding Porcentaje, Converter={StaticResource PercentToProgressConverter}}"
+                                     ProgressColor="{StaticResource Primary}" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Porcentaje, StringFormat='{0:F0}%'}"
+                               FontSize="14" TextColor="{StaticResource Primary}"
+                               FontAttributes="Bold" Margin="8,0,0,0" />
+                    </Grid>
+
+                    <Label Text="Notas:" FontSize="14" FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" Margin="0,8,0,0" />
+                    <Label Text="{Binding Notas}" FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Eliminar Sesion" Command="{Binding EliminarCommand}"
+                    BackgroundColor="{StaticResource Error}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

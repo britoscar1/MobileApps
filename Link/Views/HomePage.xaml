@@ -23,14 +23,22 @@
                     BackgroundColor="{StaticResource Surface}"
                     Padding="16">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Estado del proyecto"
+                    <Label Text="Registro de Asistencia"
                            FontAttributes="Bold"
                            TextColor="{StaticResource OnSurface}" />
-                    <Label Text="U1-U3 listas. U4 (persistencia + listas) y U5 (camara/QR/sensores) en desarrollo."
+                    <Label Text="Escanea el codigo QR proporcionado por tu docente para registrar tu asistencia."
                            FontSize="13"
                            TextColor="{StaticResource OnSurfaceVariant}" />
                 </VerticalStackLayout>
             </Border>
+
+            <Button Text="Escanear QR"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8"
+                    FontSize="16"
+                    HeightRequest="50"
+                    Clicked="OnEscanerClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

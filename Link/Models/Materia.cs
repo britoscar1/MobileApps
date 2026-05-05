@@ -1,9 +1,17 @@
+using SQLite;
+
 namespace Link.Models;
 
-// POCO placeholder. Datos reales llegaran con la integracion del backend.
 public sealed class Materia
 {
-    public string Codigo { get; init; } = string.Empty;
-    public string Nombre { get; init; } = string.Empty;
-    public string Docente { get; init; } = string.Empty;
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+
+    public string Codigo { get; set; } = string.Empty;
+
+    [NotNull]
+    public string Nombre { get; set; } = string.Empty;
+
+    [NotNull]
+    public string Docente { get; set; } = string.Empty;
 }

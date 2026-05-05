@@ -42,8 +42,12 @@ Equipo del curso (placeholder hasta confirmar nombres).
 |-- U2/Demo_FullNavigation/            integrador U2
 |-- U3/Demo_Layouts/                   Grid / Stack / Scroll
 |-- U3/Demo_MaterialUI/                MD3 sobre Demo_FullNavigation
-|-- U4/                                placeholder (listas + SQLite)
-|-- U5/                                placeholder (camara / QR / GPS)
+|-- U4/Demo_DynamicLists/              CollectionView + filtrado
+|-- U4/Demo_LocalDatabase/             CRUD SQLite
+|-- U4/Demo_PersistentData/            Listas + persistencia integradas
+|-- U5/Demo_SensorResearch/            Investigacion GPS (documentacion)
+|-- U5/Demo_SensorImpl/                Camara, GPS, Acelerometro
+|-- U5/Demo_FinalProject/              Proyecto integrador final
 |
 `-- docs/                              PUA y propuesta original (esperado)
 ```
@@ -55,8 +59,8 @@ Equipo del curso (placeholder hasta confirmar nombres).
 | U1 | Ciclo de vida | ✅ |
 | U2 | Multiples tareas (Intents / navegacion) | ✅ |
 | U3 | Interfaz de usuario | ✅ |
-| U4 | Listas + persistencia SQLite | 🚧 |
-| U5 | Sensores, camara, GPS, QR | 🚧 |
+| U4 | Listas + persistencia SQLite | ✅ |
+| U5 | Sensores, camara, GPS, QR | ✅ |
 
 ## Setup
 
@@ -69,7 +73,16 @@ dotnet restore Link.sln
 dotnet build  Link.sln
 ```
 
-> Nota: cada demo de U1-U3 vive aislada con su propio `.csproj`. No estan en `Link.sln` para que cada unidad pueda evaluarse de forma independiente.
+> Nota: cada demo de U1-U5 vive aislada con su propio `.csproj`. No estan en `Link.sln` para que cada unidad pueda evaluarse de forma independiente.
+
+### Dependencias adicionales (U4-U5)
+
+```bash
+# Las demos de U4 y U5 usan paquetes NuGet adicionales que se restauran automaticamente:
+# - sqlite-net-pcl 1.9.172 (persistencia SQLite)
+# - SQLitePCLRaw.bundle_green 2.1.10 (provider nativo)
+# - ZXing.Net.Maui.Controls 0.4.0 (escaner QR - solo Demo_FinalProject y Link/)
+```
 
 ## Como correr cada cosa
 
@@ -110,6 +123,11 @@ dotnet build <ruta>/<DemoName>.csproj -f net10.0-android
 | Demo_FullNavigation | `dotnet run --project U2/Demo_FullNavigation/Demo_FullNavigation.csproj -f net10.0-windows10.0.19041.0` |
 | Demo_Layouts | `dotnet run --project U3/Demo_Layouts/Demo_Layouts.csproj -f net10.0-windows10.0.19041.0` |
 | Demo_MaterialUI | `dotnet run --project U3/Demo_MaterialUI/Demo_MaterialUI.csproj -f net10.0-windows10.0.19041.0` |
+| Demo_DynamicLists | `dotnet run --project U4/Demo_DynamicLists/Demo_DynamicLists.csproj -f net10.0-windows10.0.19041.0` |
+| Demo_LocalDatabase | `dotnet run --project U4/Demo_LocalDatabase/Demo_LocalDatabase.csproj -f net10.0-windows10.0.19041.0` |
+| Demo_PersistentData | `dotnet run --project U4/Demo_PersistentData/Demo_PersistentData.csproj -f net10.0-windows10.0.19041.0` |
+| Demo_SensorImpl | `dotnet run --project U5/Demo_SensorImpl/Demo_SensorImpl.csproj -f net10.0-windows10.0.19041.0` |
+| Demo_FinalProject | `dotnet run --project U5/Demo_FinalProject/Demo_FinalProject.csproj -f net10.0-windows10.0.19041.0` |
 
 Reemplazar `net10.0-windows10.0.19041.0` por `net10.0-android` para Android.
 

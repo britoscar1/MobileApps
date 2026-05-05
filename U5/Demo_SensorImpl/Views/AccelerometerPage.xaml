@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_SensorImpl.ViewModels"
+    x:Class="Demo_SensorImpl.Views.AccelerometerPage"
+    x:DataType="vm:AccelerometerViewModel"
+    Title="Acelerometro"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Label Text="Acelerometro" FontSize="22" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <Label Text="{Binding Estado}" FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+
+            <Button Text="{Binding Activo, StringFormat='{0:Desactivar|Activar} acelerometro'}"
+                    Command="{Binding ToggleAcelerometroCommand}"
+                    BackgroundColor="{Binding Activo, Converter={StaticResource BoolToColorConverter}}"
+                    TextColor="{StaticResource OnPrimary}" CornerRadius="8" />
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="16" RowSpacing="12">
+                    <Label Text="X:" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Error}" />
+                    <Label Grid.Column="1" Text="{Binding ValorX}" FontSize="18" TextColor="{StaticResource OnSurface}" />
+
+                    <Label Grid.Row="1" Text="Y:" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Success}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding ValorY}" FontSize="18" TextColor="{StaticResource OnSurface}" />
+
+                    <Label Grid.Row="2" Text="Z:" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding ValorZ}" FontSize="18" TextColor="{StaticResource OnSurface}" />
+                </Grid>
+            </Border>
+
+            <Label Text="Magnitud del vector" FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+            <ProgressBar Progress="{Binding Magnitud}" ProgressColor="{StaticResource Primary}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

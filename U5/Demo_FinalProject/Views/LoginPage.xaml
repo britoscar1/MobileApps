@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_FinalProject.ViewModels"
+    x:Class="Demo_FinalProject.Views.LoginPage"
+    x:DataType="vm:LoginViewModel"
+    Title="Link"
+    BackgroundColor="{StaticResource Background}"
+    Shell.NavBarIsVisible="False">
+
+    <Grid VerticalOptions="Center" Padding="32">
+        <VerticalStackLayout Spacing="16">
+
+            <Label Text="Link" FontSize="32" FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            <Label Text="Registro de Asistencias" FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}" HorizontalOptions="Center"
+                   Margin="0,0,0,24" />
+
+            <Entry Text="{Binding Usuario}" Placeholder="Usuario"
+                   BackgroundColor="{StaticResource Surface}" />
+
+            <Entry Text="{Binding Contrasena}" Placeholder="Contrasena"
+                   IsPassword="True" BackgroundColor="{StaticResource Surface}" />
+
+            <Label Text="{Binding Error}" TextColor="{StaticResource Error}" FontSize="12" />
+
+            <Button Text="Iniciar Sesion" Command="{Binding LoginCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}"
+                    CornerRadius="8" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

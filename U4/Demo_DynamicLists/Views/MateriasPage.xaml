@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_DynamicLists.ViewModels"
+    xmlns:models="clr-namespace:Demo_DynamicLists.Models"
+    x:Class="Demo_DynamicLists.Views.MateriasPage"
+    x:DataType="vm:MateriasViewModel"
+    Title="Materias"
+    BackgroundColor="{StaticResource Background}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Barra de busqueda -->
+        <SearchBar
+            Grid.Row="0"
+            Placeholder="Buscar materia..."
+            Text="{Binding TextoBusqueda}"
+            BackgroundColor="{StaticResource Surface}"
+            Margin="16,16,16,0" />
+
+        <!-- Indicador de carga -->
+        <ActivityIndicator
+            Grid.Row="1"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource Primary}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+
+        <!-- Lista de materias con pull-to-refresh -->
+        <RefreshView
+            Grid.Row="1"
+            Command="{Binding CargarMateriasCommand}"
+            IsRefreshing="{Binding IsBusy}">
+
+            <CollectionView
+                ItemsSource="{Binding Materias}"
+                Margin="16,8">
+
+                <CollectionView.EmptyView>
+                    <Label
+                        Text="No se encontraron materias"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource OnSurfaceVariant}"
+                        FontSize="16"
+                        Margin="0,40,0,0" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Materia">
+                        <Border
+                            StrokeShape="RoundRectangle 12"
+                            Stroke="{StaticResource Outline}"
+                            BackgroundColor="{StaticResource Surface}"
+                            Padding="16"
+                            Margin="0,6">
+                            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="{Binding Nombre}"
+                                    FontSize="16"
+                                    FontAttributes="Bold"
+                                    TextColor="{StaticResource OnSurface}" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="{Binding Creditos, StringFormat='{0} cr.'}"
+                                    FontSize="14"
+                                    TextColor="{StaticResource Primary}"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Text="{Binding Docente}"
+                                    FontSize="14"
+                                    TextColor="{StaticResource OnSurfaceVariant}"
+                                    Margin="0,4,0,0" />
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Text="{Binding HorarioTexto}"
+                                    FontSize="12"
+                                    TextColor="{StaticResource OnSurfaceVariant}"
+                                    Margin="0,2,0,0" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

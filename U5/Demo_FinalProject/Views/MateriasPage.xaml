@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_FinalProject.ViewModels"
+    xmlns:models="clr-namespace:Demo_FinalProject.Models"
+    x:Class="Demo_FinalProject.Views.MateriasPage"
+    x:DataType="vm:MateriasViewModel"
+    Title="Materias"
+    BackgroundColor="{StaticResource Background}">
+
+    <RefreshView Command="{Binding CargarMateriasCommand}" IsRefreshing="{Binding IsBusy}">
+        <CollectionView ItemsSource="{Binding Materias}" Margin="16,8">
+
+            <CollectionView.EmptyView>
+                <Label Text="No hay materias registradas"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       TextColor="{StaticResource OnSurfaceVariant}" FontSize="16"
+                       Margin="0,40,0,0" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Materia">
+                    <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                            BackgroundColor="{StaticResource Surface}" Padding="16" Margin="0,6">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MateriasViewModel}}, Path=VerDetalleCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                            <Label Text="{Binding Nombre}" FontSize="16" FontAttributes="Bold"
+                                   TextColor="{StaticResource OnSurface}" />
+                            <Label Grid.Column="1" Text="{Binding Creditos, StringFormat='{0} cr.'}"
+                                   FontSize="14" TextColor="{StaticResource Primary}" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Docente}"
+                                   FontSize="14" TextColor="{StaticResource OnSurfaceVariant}" Margin="0,4,0,0" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

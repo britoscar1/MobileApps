@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Demo_SensorImpl.ViewModels"
+    x:Class="Demo_SensorImpl.Views.GpsPage"
+    x:DataType="vm:GpsViewModel"
+    Title="GPS"
+    BackgroundColor="{StaticResource Background}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+
+            <Label Text="Geolocalizacion" FontSize="22" FontAttributes="Bold"
+                   TextColor="{StaticResource OnSurface}" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Primary}" />
+
+            <Border StrokeShape="RoundRectangle 12" Stroke="{StaticResource Outline}"
+                    BackgroundColor="{StaticResource Surface}" Padding="20">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="16" RowSpacing="12">
+                    <Label Text="Latitud:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                    <Label Grid.Column="1" Text="{Binding Latitud}" TextColor="{StaticResource OnSurfaceVariant}" />
+
+                    <Label Grid.Row="1" Text="Longitud:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Longitud}" TextColor="{StaticResource OnSurfaceVariant}" />
+
+                    <Label Grid.Row="2" Text="Precision:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Precision}" TextColor="{StaticResource OnSurfaceVariant}" />
+
+                    <Label Grid.Row="3" Text="Timestamp:" FontAttributes="Bold" TextColor="{StaticResource OnSurface}" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Timestamp}" TextColor="{StaticResource OnSurfaceVariant}" />
+                </Grid>
+            </Border>
+
+            <Label Text="{Binding Estado}" FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}" />
+
+            <Button Text="Obtener ubicacion" Command="{Binding ObtenerUbicacionCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource OnPrimary}" CornerRadius="8" />
+
+            <Button Text="Abrir en Maps" Command="{Binding AbrirEnMapaCommand}"
+                    BackgroundColor="{StaticResource Surface}"
+                    TextColor="{StaticResource Primary}" CornerRadius="8"
+                    BorderColor="{StaticResource Primary}" BorderWidth="1" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

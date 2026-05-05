@@ -9,4 +9,11 @@ public partial class MateriasPage : ContentPage
         InitializeComponent();
         BindingContext = viewModel;
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        if (BindingContext is MateriasViewModel vm)
+            vm.CargarMateriasCommand.Execute(null);
+    }
 }

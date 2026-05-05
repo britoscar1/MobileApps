@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Link.ViewModels"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+    x:Class="Link.Views.EscanerPage"
+    x:DataType="vm:EscanerViewModel"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource Background}">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <zxing:CameraBarcodeReaderView
+            x:Name="BarcodeReader"
+            IsDetecting="{Binding Escaneando}" />
+
+        <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8"
+                             BackgroundColor="{StaticResource Surface}">
+            <Label Text="{Binding Estado}" FontSize="16"
+                   TextColor="{StaticResource OnSurface}"
+                   FontAttributes="Bold" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
