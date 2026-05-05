@@ -6,7 +6,9 @@ A futuro Link permitira a estudiantes registrar asistencia escaneando QR generad
 
 ## Equipo
 
-Equipo del curso (placeholder hasta confirmar nombres).
+Brito Ortiz Oscar Artemio
+Ruiz Rodriguez Jorge Alberto
+Ramírez Dórame Abel
 
 ## Stack
 
@@ -17,11 +19,6 @@ Equipo del curso (placeholder hasta confirmar nombres).
 - **ASP.NET Core 10 Web API** para el esqueleto del backend.
 - Plataformas target: **Android** (`net10.0-android`) y **Windows** (`net10.0-windows10.0.19041.0`). Sin iOS / MacCatalyst.
 
-## Desviaciones del prompt original
-
-- El prompt pedia **.NET 9** (`net9.0-*`). El SDK instalado en la maquina es **.NET 10.0.202** unicamente, y el workload `maui` activo es `maui-windows 10.0.20`. Para no bloquear el scaffolding se uso `net10.0-android` y `net10.0-windows10.0.19041.0`. La migracion a `net9.0-*` es trivial: cambiar el TFM en cada `.csproj`. El codigo no usa nada exclusivo de .NET 10.
-- El prompt pedia un `Link.sln` clasico. .NET 10 ahora prefiere el formato `.slnx`; se forzo el clasico con `dotnet new sln --format sln`.
-- En `Link/` se silencia el warning `MVVMTK0045` (partial properties para AOT WinRT) porque el binding aqui es por reflexion, no AOT. El field syntax es deliberado.
 
 ## Estructura
 
@@ -131,13 +128,6 @@ dotnet build <ruta>/<DemoName>.csproj -f net10.0-android
 
 Reemplazar `net10.0-windows10.0.19041.0` por `net10.0-android` para Android.
 
-## Documentacion fuente
 
-Se asume que la PUA del curso y la propuesta original viven en `docs/` (carpeta vacia en esta iteracion; no se mueven archivos del usuario).
 
-## Convenciones
 
-- **Comentarios** en espanol (idioma del curso).
-- **Nombres** de clases/metodos en ingles (convencion .NET).
-- **Sin emojis** en codigo ni UI; solo en READMEs como senalizacion (✅ / 🚧).
-- **Sin gradientes** ni estetica "wow generada por IA": diseno institucional, sobrio, espaciado generoso, bordes 8-12dp, sombras sutiles.
